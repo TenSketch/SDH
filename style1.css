@@ -1,0 +1,215 @@
+/* defining CSS variables */
+:root {
+  --zero: 0;
+  --x5: 0 5%;
+  --x10: 0 10%;
+  --y5: 5% 0;
+  --y10: 10% 0;
+  --xy25: 2.5% 5% 5%;
+  --two: 2%;
+  --five: 5%;
+  --ten: 10%;
+  --one-em: 1em;
+  --two-em: 2em;
+  --three-em: 3em;
+  --four-em: 4em;
+  --five-em: 5em;
+  --vh-100: 100vh;
+  --vw--100: 100vw;
+  --hundred: 100%;
+  /* SDH - https://coolors.co/df1e35-ffffff-303a39-70a288-c62e65 */
+  --clr-primary: #df1e35;
+  --clr-secondary: #e96777;
+  --clr-light: #fadde0;
+  --clr-dark: #303a39;
+  --rose-red: #c62e65;
+  --center: center;
+  --text-justify: justify;
+  --flex: flex;
+  --SA: space-around;
+  --SB: space-between;
+  --flex-row: row;
+  --flex-column: column;
+  --right: right;
+  --auto: auto;
+  --none: none;
+}
+/* universal selector * */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  font-family: serif;
+}
+body {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  overflow-x: hidden;
+  font-size: 1.125em;
+}
+/* responsive image css */
+img {
+  max-width: var(--hundred);
+  height: var(--auto);
+}
+h1,
+h2,
+p {
+  margin-top: var(--zero);
+}
+
+/* mobile first CSS */
+
+/* NAVBAR TOGGLE USING FLEX, FLOAT AND INPUT TYPE CHECKBOX STARTS */
+
+/* @media (max-width: 768px) { */
+nav {
+  position: fixed;
+  background-color: var(--clr-secondary);
+  color: var(--clr-dark);
+  width: var(--hundred);
+  padding: 0 2em;
+}
+nav,
+nav img {
+  height: var(--five-em);
+}
+nav img {
+  padding: 0.5em;
+}
+.logo {
+  z-index: 100;
+  position: absolute;
+}
+#check {
+  display: var(--none);
+}
+.burger {
+  display: var(--flex) !important;
+  flex-direction: var(--flex-column);
+  height: var(--hundred);
+  justify-content: var(--center);
+  /* cursor: pointer; */
+  position: absolute;
+  z-index: 1;
+  right: 2em;
+  /* margin-right: 2em; */
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: var(--clr-light);
+  margin: 2px;
+  transition: all 0.3s ease-in-out;
+}
+nav ul {
+  position: fixed;
+  float: var(--none);
+  width: var(--hundred);
+  padding: var(--zero);
+  list-style: var(--none);
+  /* height: var(--vh-100); */
+  background: var(--clr-secondary);
+  right: var(--zero);
+  display: var(--flex);
+  height: var(--hundred);
+  flex-direction: var(--flex-column);
+  justify-content: var(--center);
+  text-align: var(--center);
+  top: -100%;
+  transition: all 0.5s;
+}
+nav li {
+  margin-bottom: 4em;
+  letter-spacing: 1.5px;
+}
+nav a {
+  text-decoration: var(--none);
+  color: var(--clr-light);
+}
+/* } */
+
+@media (min-width: 768px) {
+  nav {
+
+    padding: 0 5em;
+  }
+
+  .burger {
+    display: var(--none)!important;
+  }
+  nav ul {
+    /* float: var(--right); */
+    /* padding: var(--zero); */
+    margin: var(--zero);
+    /* list-style: var(--none); */
+    /* display: var(--flex); */
+    flex-direction: var(--flex-row);
+    align-items: var(--center);
+    height: var(--hundred);
+    /* top: var(--zero); */
+    /* position: relative; */
+    justify-content: flex-end;
+}
+  nav li {
+    margin-right: var(--two-em);
+    /* font-size: 18px; */
+    /* letter-spacing: 1.5px; */
+  }
+  nav ul li:last-child {
+    margin-right: var(--zero);
+  }
+ 
+}
+
+/* toggle */
+#check:checked ~ ul {
+  top: 0;
+}
+/* cross animation on toggle */
+#check:checked ~ .burger .line1 {
+  transform: rotate(-45deg) translate(-4px, 6px);
+}
+#check:checked ~ .burger .line2 {
+  opacity: 0;
+}
+#check:checked ~ .burger .line3 {
+  transform: rotate(45deg) translate(-4px, -6px);
+}
+
+/* NAVBAR TOGGLE USING FLEX, FLOAT AND INPUT TYPE CHECKBOX ENDS */
+
+/* utility classes */
+.container {
+  width: min(80%, 991px);
+  margin: 0 auto;
+  height: 100%;
+}
+
+/* intro screen */
+header {
+  background-color: var(--clr-light);
+  height: var(--vh-100);
+  /* padding: var(--x5); */
+}
+.intro {
+  height: var(--hundred);
+  display: var(--flex);
+  align-items: var(--center);
+  justify-content: var(--center);
+  color: var(--clr-dark);
+  text-align: var(--center);
+}
+.intro h1 {
+  font-size: 5vw;
+}
+.intro h2 {
+  font-size: var(--two-em);
+}
+
+#about {
+  background-color: var(--rose-red);
+  padding: var(--y5);
+}

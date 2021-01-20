@@ -1,0 +1,236 @@
+/* defining CSS variables */
+:root {
+  --zero: 0;
+  --x5: 0 5%;
+  --x10: 0 10%;
+  --y5: 5% 0;
+  --y10: 10% 0;
+  --xy25: 2.5% 5% 5%;
+  --two: 2%;
+  --five: 5%;
+  --ten: 10%;
+  --one-em: 1em;
+  --two-em: 2em;
+  --three-em: 3em;
+  --four-em: 4em;
+  --five-em: 5em;
+  --vh-100: 100vh;
+  --vw--100: 100vw;
+  --hundred: 100%;
+  /* SDH - https://coolors.co/df1e35-ffffff-303a39-70a288-c62e65 */
+  --clr-primary: #df1e35;
+  --clr-secondary: #e96777;
+  --clr-light: #fadde0;
+  --clr-dark: #303a39;
+  --rose-red: #c62e65;
+  --center: center;
+  --text-justify: justify;
+  --flex: flex;
+  --SA: space-around;
+  --SB: space-between;
+  --flex-row: row;
+  --flex-column: column;
+  --right: right;
+  --auto: auto;
+  --none: none;
+  --py_3rem: 3rem 0;
+}
+/* universal selector * */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  font-family: serif;
+}
+body {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  overflow-x: hidden;
+  font-size: 1.125em;
+}
+/* responsive image css */
+img {
+  max-width: var(--hundred);
+  height: var(--auto);
+  display: block;
+}
+h1,
+h2,
+p {
+  margin-top: var(--zero);
+}
+/* utility classes */
+.container {
+  width: min(80%, 991px);
+  margin: 0 auto;
+  height: 100%;
+}
+.py_3rem {
+  padding: 3rem var(--zero);
+}
+
+/* navbar using float, flex and input checked*/
+nav {
+  position: fixed;
+  color: var(--clr-dark);
+  width: var(--hundred);
+  background-color: var(--clr-secondary);
+  /* padding: 0 5em; */
+}
+nav,
+nav img {
+  height: var(--five-em);
+}
+nav img {
+  padding: 0.5em 0;
+}
+
+nav ul {
+  float: var(--right);
+  padding: var(--zero);
+  margin: var(--zero);
+  list-style: var(--none);
+  display: var(--flex);
+  align-items: var(--center);
+  height: var(--hundred);
+}
+nav li {
+  margin-right: var(--two-em);
+  /* font-size: 18px; */
+  letter-spacing: 1.5px;
+}
+nav ul li:last-child {
+  margin-right: var(--zero);
+}
+nav a {
+  text-decoration: var(--none);
+  color: var(--clr-light);
+}
+
+#check {
+  display: var(--none);
+}
+.burger {
+  display: none;
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: var(--clr-light);
+  margin: 2px;
+  transition: all 0.3s ease-in-out;
+}
+/* toggle */
+#check:checked ~ ul {
+  top: 0;
+}
+/* cross animation on toggle */
+#check:checked ~ .burger .line1 {
+  transform: rotate(-45deg) translate(-4px, 6px);
+}
+#check:checked ~ .burger .line2 {
+  opacity: 0;
+}
+#check:checked ~ .burger .line3 {
+  transform: rotate(45deg) translate(-4px, -6px);
+}
+
+/* intro screen */
+header {
+  background-color: var(--clr-light);
+  height: var(--vh-100);
+  /* padding: var(--x5); */
+}
+.intro {
+  height: var(--hundred);
+  display: var(--flex);
+  align-items: var(--center);
+  justify-content: var(--center);
+  color: var(--clr-dark);
+  text-align: var(--center);
+  /* padding: var(--py_3rem); */
+}
+.intro h1 {
+  font-size: 5vw;
+}
+.intro h2 {
+  font-size: var(--two-em);
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 0 2em;
+  }
+  .logo {
+    z-index: 100;
+    position: absolute;
+  }
+  .burger {
+    display: var(--flex) !important;
+    flex-direction: var(--flex-column);
+    height: var(--hundred);
+    justify-content: var(--center);
+    cursor: pointer;
+    z-index: 100;
+    position: absolute;
+    right: 0;
+    margin-right: 2em;
+  }
+  nav ul {
+    position: fixed;
+    width: 100%;
+    height: var(--vh-100);
+    background: var(--clr-secondary);
+    right: var(--zero);
+    top: -100%;
+    flex-direction: var(--flex-column);
+    justify-content: center;
+    text-align: var(--center);
+    float: none;
+    transition: all 0.5s;
+  }
+  nav ul li {
+    margin-right: var(--zero);
+    margin-bottom: 4em;
+  }
+}
+#about {
+  background: rgba(0, 0, 0, 0.74)
+    url(https://source.unsplash.com/1920x1080/?health,wealth) center no-repeat;
+  background-size: cover;
+  color: var(--clr-light);
+  background-blend-mode: overlay;
+}
+.img_container {
+  display: var(--flex);
+  flex-direction: var(--flex-column);
+  align-items: var(--center);
+  gap: 2em;
+}
+.img_container div {
+  justify-self: var(--center);
+  transition: all 0.3s;
+  text-align: var(--center);
+  position: relative;
+  /* display: grid;
+  place-items: var(--center); */
+  background-color: rgba(0, 0, 0, 0.938);
+}
+.img_container div p {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+}
+.img_container div:hover {
+}
+#features {
+  height: var(--hundred);
+}
+@media (min-width: 768px) {
+  .img_container {
+    flex-direction: var(--flex-row);
+    gap: 2em;
+  }
+}
